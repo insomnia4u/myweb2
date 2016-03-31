@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-INDEX JSP 입니다.
+<li><a href="">사원관리 프로그램(mvc)</a></li>
 </body>
 </html>
