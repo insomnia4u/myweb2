@@ -9,14 +9,6 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
-  <servlet>
-  <servlet-name>yongController</servlet-name>
-  <servlet-class>yong.controller.YongController</servlet-class>
-  </servlet>
-  <servlet-mapping>
-  <servlet-name>yongController</servlet-name>
- <url-pattern>*.yong</url-pattern>
-  </servlet-mapping>
     <servlet>
   <servlet-name>samController</servlet-name>
   <servlet-class>sam.controller.SamController</servlet-class>

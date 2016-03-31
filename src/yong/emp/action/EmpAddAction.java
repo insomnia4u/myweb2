@@ -22,7 +22,7 @@ public class EmpAddAction implements CommandHandler {
 		EmpDAO dao=new EmpDAO();
 		int result=dao.empAdd(dto);
 		
-		String msg=result>0?"»ç¿øµî·Ï¼º°ø!":"»ç¿øµî·Ï½ÇÆÐ!";
+		String msg=result>0?"ì„±ê³µ(ìš©)!":"ì‹¤íŒ¨(ìš©)!";
 		req.setAttribute("msg", msg);
 		
 			
