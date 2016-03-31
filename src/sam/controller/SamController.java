@@ -1,5 +1,6 @@
 package sam.controller;
 
+import java.io.FileInputStream;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -9,9 +10,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.sun.javafx.binding.ContentBinding;
-
-import jdk.nashorn.internal.ir.RuntimeNode.Request;
 import sam.command.CommandHandler;
 import sam.command.*;
 
@@ -29,7 +27,41 @@ public class SamController extends HttpServlet
 	public void init(ServletConfig config) throws ServletException {
 		String path=config.getServletContext().getRealPath("/WEB-INF/samCommand.properties");
 		
-		System.out.println("path="+path);
+		//System.out.println("path="+path);
+		
+		java.util.Properties prop=null;
+		
+		try {
+			FileInputStream fis=new FileInputStream(path);
+			prop= new java.util.Properties();
+			prop.load(fis);
+			fis.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			
+		}
+		
+		Iterator keys=prop.keySet().iterator();
+		while(keys.hasNext())
+		{
+			String key=(String)keys.next();
+			String classpath=prop.getProperty(key);
+			
+			try {
+				Class obj_class=Class.forName(classpath);
+				try {
+					Object obj=obj_class.getClass().newInstance();
+					commandMap.put(key, obj);
+					
+				} catch (InstantiationException | IllegalAccessException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 	
 	@Override
@@ -50,28 +82,28 @@ public class SamController extends HttpServlet
 		
 		//2. 요구 기능 분석
 		//String result=null;
-		CommandHandler command=null;
+		CommandHandler command=(CommandHandler)commandMap.get(type);
 		
 		
 		String goPage=null;
 		
-		if(type.equals("list"))
-		{
-			//3. 기능 처리
-			command=new ListAction();
-				
-		}
-		else if(type.equals("write"))
-		{
-			command=new WriteAction();
-
-		}
-		else if(type.equals("content"))
-		{
-			
-			command=new ContentAction();
-		}
-		
+//		if(type.equals("list"))
+//		{
+//			//3. 기능 처리
+//			command=new ListAction();
+//				
+//		}
+//		else if(type.equals("write"))
+//		{
+//			command=new WriteAction();
+//
+//		}
+//		else if(type.equals("content"))
+//		{
+//			
+//			command=new ContentAction();
+//		}
+//		
 		//4. 결과 저장
 		//req.setAttribute("result", result);
 		
