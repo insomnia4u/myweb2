@@ -13,7 +13,7 @@
 이름<input type="text" name="name"><br>
 이메일<input type="text" name="email"><br>
 부서<input type="text" name="dept"><br>
-<input type="submit" value="사원 등록"><input type="reset">
+<input type="submit" value="사원등록"><input type="reset">
 </fieldset>
 </form>
 </body>
