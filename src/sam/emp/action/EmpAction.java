@@ -6,6 +6,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.sun.org.apache.xalan.internal.xslt.Process;
+
 import sam.command.CommandHandler;
 
 public class EmpAction implements CommandHandler {
@@ -13,7 +15,7 @@ public class EmpAction implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		return "/emp/emp.jsp";
+		return "emp/emp.jsp";
 	}
 
 }
