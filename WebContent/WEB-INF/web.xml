@@ -19,7 +19,7 @@
   </servlet-mapping>
       <servlet>
   <servlet-name>yongController</servlet-name>
-  <servlet-class>yong.controller.SamController</servlet-class>
+  <servlet-class>yong.controller.YongController</servlet-class>
   </servlet>
   <servlet-mapping>
   <servlet-name>yongController</servlet-name>
