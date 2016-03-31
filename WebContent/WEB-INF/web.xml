@@ -19,7 +19,7 @@
   </servlet-mapping>
     <servlet>
   <servlet-name>samController</servlet-name>
-  <servlet-class>sam.controller.YongController</servlet-class>
+  <servlet-class>sam.controller.SamController</servlet-class>
   </servlet>
   <servlet-mapping>
   <servlet-name>samController</servlet-name>
