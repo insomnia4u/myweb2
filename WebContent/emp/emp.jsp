@@ -7,7 +7,8 @@
 <title>Title</title>
 </head>
 <body>
-<form name="empAdd">
+<h1>사원 관리 프로그램</h1>
+<form name="empAdd" action="empAdd.sam">
 <fieldset>
 <legend>사원 등록</legend>
 이름<input type="text" name="name"><br>
