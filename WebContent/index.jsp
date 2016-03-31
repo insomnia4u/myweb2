@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<ul>
 <li><a href="emp.sam">사원관리 프로그램(mvc)</a></li>
+</ul>
 </body>
 </html>
