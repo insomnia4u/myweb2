@@ -15,6 +15,6 @@
   </servlet>
   <servlet-mapping>
   	<servlet-name>samController</servlet-name>
-  	<url-pattern>/sam</url-pattern>
+  	<url-pattern>*.sam</url-pattern>
   </servlet-mapping>
 </web-app>

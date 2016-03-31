@@ -73,7 +73,16 @@ public class SamController extends HttpServlet{
    }
    protected void userProcess(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
       //1.http 요청받음(awt의 object 반환받음)
-      String type=req.getParameter("type");
+      //String type=req.getParameter("type");
+      
+	   String type=null;
+	   String userUrl=req.getRequestURI();
+      
+      if(userUrl.indexOf(req.getContextPath())==0)
+      {
+    	  type=userUrl.substring(req.getContextPath().length());
+    	  
+      }
       
       //2.요구기능분석
       CommandHandler command=(CommandHandler)commandMap.get(type);
@@ -82,8 +91,7 @@ public class SamController extends HttpServlet{
       goPage=command.process(req, resp);
       
       //5.이동
-      RequestDispatcher dis=
-            req.getRequestDispatcher(goPage);
+      RequestDispatcher dis=req.getRequestDispatcher(goPage);
       dis.forward(req, resp);
       
       
