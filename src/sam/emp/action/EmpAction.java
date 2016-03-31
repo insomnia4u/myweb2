@@ -15,7 +15,7 @@ public class EmpAction implements CommandHandler {
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		return "emp/emp.jsp";
+		return "/emp/emp.jsp";
 	}
 
 }

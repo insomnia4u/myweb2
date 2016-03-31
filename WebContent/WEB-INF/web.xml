@@ -17,4 +17,12 @@
   <servlet-name>yongController</servlet-name>
  <url-pattern>*.yong</url-pattern>
   </servlet-mapping>
+    <servlet>
+  <servlet-name>samController</servlet-name>
+  <servlet-class>sam.controller.YongController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  <servlet-name>samController</servlet-name>
+ <url-pattern>*.sam</url-pattern>
+  </servlet-mapping>
 </web-app>
