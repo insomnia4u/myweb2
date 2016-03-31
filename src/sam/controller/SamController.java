@@ -3,6 +3,7 @@ package sam.controller;
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,8 +15,23 @@ import jdk.nashorn.internal.ir.RuntimeNode.Request;
 import sam.command.CommandHandler;
 import sam.command.*;
 
+import java.util.*;
+
 public class SamController extends HttpServlet
 {
+	private Map commandMap;
+	
+	public SamController() {
+		commandMap=new HashMap<String, Object>();
+	}
+	
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+		String path=config.getServletContext().getRealPath("/WEB-INF/samCommand.properties");
+		
+		System.out.println("path="+path);
+	}
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		userProcess(req, resp);
