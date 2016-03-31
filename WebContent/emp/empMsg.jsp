@@ -2,5 +2,5 @@
     pageEncoding="utf-8"%>
 <script>
 window.alert('<%=request.getAttribute("msg")%>');
-location.href='emp.sam';
+location.href='emp.yong';
 </script>
