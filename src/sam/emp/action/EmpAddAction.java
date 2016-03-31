@@ -1,6 +1,5 @@
 package sam.emp.action;
 
-import sam.emp.model.*;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -8,6 +7,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import sam.command.CommandHandler;
+import sam.emp.model.EmpDAO;
+import sam.emp.model.EmpDTO;
 
 public class EmpAddAction implements CommandHandler {
 
@@ -17,13 +18,14 @@ public class EmpAddAction implements CommandHandler {
 		String email=req.getParameter("email");
 		String dept=req.getParameter("dept");
 		
-		EmpDTO dto=new EmpDTO(0, name,email,dept);
+		EmpDTO dto=new EmpDTO(0, name, email, dept);
 		EmpDAO dao=new EmpDAO();
 		int result=dao.empAdd(dto);
 		
-		String msg=result>0?"사원등록성공!!":"사원등록실패!";
+		String msg=result>0?"성공!":"실패!";
 		req.setAttribute("msg", msg);
 		
+			
 		return "/emp/empMsg.jsp";
 	}
 
