@@ -30,7 +30,7 @@ public class SamController extends HttpServlet{
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 	    String path=config.getServletContext().getRealPath("/WEB-INF/samCommand.properties");
-	    System.out.println("path="+path);
+	    
 	    Properties prop=null;
 	    try {
 			FileInputStream fis=
