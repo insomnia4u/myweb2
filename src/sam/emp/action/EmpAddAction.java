@@ -21,7 +21,7 @@ public class EmpAddAction implements CommandHandler {
 		EmpDAO dao=new EmpDAO();
 		int result=dao.empAdd(dto);
 		
-		String msg=result>0?"사원등록성공!":"사원등록실패!";
+		String msg=result>0?"사원등록성공!!":"사원등록실패!";
 		req.setAttribute("msg", msg);
 		
 		return "/emp/empMsg.jsp";
