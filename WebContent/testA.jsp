@@ -11,6 +11,7 @@
 <form name="testA" action="testB.jsp">
 이름 <input type="text" name="name"><br>
 <input type="submit" value="전송">
+DD
 </form>
 </body>
 </html>
