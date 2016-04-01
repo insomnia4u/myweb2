@@ -14,7 +14,7 @@ public class EmpDAO {
 		try
 		{
 			conn=sam.db.SamDB.getConn();
-			String sql="insert into employee values(employee_idx.nextval,?,?,?";
+			String sql="insert into employee values(employee_idx.nextval,?,?,?)";
 			
 			ps=conn.prepareStatement(sql);
 			ps.setString(1, dto.getName());
