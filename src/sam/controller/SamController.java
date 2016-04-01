@@ -27,14 +27,15 @@ public class SamController extends HttpServlet{
 	public SamController() {
 		commandMap=new HashMap<String,Object>();
 	}
+	
+	
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 	    String path=config.getServletContext().getRealPath("/WEB-INF/samCommand.properties");
 	    
 	    Properties prop=null;
 	    try {
-			FileInputStream fis=
-					new FileInputStream(path);
+			FileInputStream fis= new FileInputStream(path);
 			prop=new Properties();
 			prop.load(fis);
 			fis.close();

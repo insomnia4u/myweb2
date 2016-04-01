@@ -12,6 +12,8 @@ import sam.emp.model.EmpDTO;
 
 public class EmpDelAction implements CommandHandler {
 
+	
+	
 	@Override
 	public String process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String name=req.getParameter("name");
