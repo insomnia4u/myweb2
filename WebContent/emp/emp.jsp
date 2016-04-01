@@ -17,5 +17,12 @@
 <input type="submit" value="사원등록"><input type="reset">
 </fieldset>
 </form>
+<form name="empDel" action="empDel.sam">
+<fieldset>
+<legend>사원 삭제</legend>
+이름<input type="text" name="name"><br>
+<input type="submit" value="사원삭제"><input type="reset">
+</fieldset>
+</form>
 </body>
 </html>

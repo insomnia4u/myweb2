@@ -42,4 +42,36 @@ public class EmpDAO {
 			}
 		}
 	}
+	
+	public int empDel(String eName)
+	{
+		try
+		{
+			conn=sam.db.SamDB.getConn();
+			String sql="delete from employee where name=?";
+			
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, eName);
+			int count=ps.executeUpdate();
+			
+			return count;
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+			return -1;
+		}
+		finally
+		{
+			try
+			{
+				if(ps!=null)ps.close();
+				if(conn!=null)conn.close();
+			}
+			catch(Exception e2)
+			{
+				
+			}
+		}
+	}
 }
