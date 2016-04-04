@@ -23,6 +23,7 @@ public class EmpAddAction implements CommandHandler {
 		int result=dao.empAdd(dto);
 		
 		String msg=result>0?"성공(용)!":"실패(용)!";
+		
 		req.setAttribute("msg", msg);
 		
 			

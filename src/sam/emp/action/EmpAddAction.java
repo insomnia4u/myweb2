@@ -22,9 +22,17 @@ public class EmpAddAction implements CommandHandler {
 		EmpDAO dao=new EmpDAO();
 		int result=dao.empAdd(dto);
 		
-		String msg=result>0?"성공!":"실패!";
+		String msg=result>0?"성공!(삼)":"실패!";
 		req.setAttribute("msg", msg);
+		try {
+			Thread.sleep(10000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("쓰레드 돔!");
 		
+		dao.empDel(name);
 			
 		return "/emp/empMsg.jsp";
 	}

@@ -22,7 +22,7 @@ public class EmpDelAction implements CommandHandler {
 		int result=dao.empDel(dto);
 		
 		
-		String msg=result>0?"荤盔昏力 己傍!":"荤盔昏力 角菩!";
+		String msg=result>0?"靷牅 靹标车!":"靷牅 鞁ろ尐!";
 		req.setAttribute("msg", msg);
 		
 			

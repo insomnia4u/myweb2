@@ -21,7 +21,7 @@ public class EmpDelAction implements CommandHandler {
 		EmpDAO dao=new EmpDAO();
 		int result=dao.empDel(name);
 		
-		String msg=result>0?"성공!":"실패!";
+		String msg=result>0?"성공(삼)!":"실패(삼)!";
 		req.setAttribute("msg", msg);
 		
 			
