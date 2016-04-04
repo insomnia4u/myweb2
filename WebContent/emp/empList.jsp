@@ -55,11 +55,9 @@ if(arr==null){
 <script>
 $(function(){
 		$('.button-'+<%=i%>+'').click(function(){
-				    
-			
 			      if ($('.button-'+<%=i%>+'').val() == "완료") {
 			    	  $('.f-'+<%=i%>+'').submit();
-			    	  
+    	  
 					return true;
 			      }
 			      $('.t-'+<%=i%>+'').attr('readonly',false);
