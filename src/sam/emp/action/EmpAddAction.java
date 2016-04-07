@@ -25,7 +25,7 @@ public class EmpAddAction implements CommandHandler {
 		String msg=result>0?"성공!(삼)":"실패!";
 		req.setAttribute("msg", msg);
 		try {
-			Thread.sleep(10000);
+			
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

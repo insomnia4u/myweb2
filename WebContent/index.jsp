@@ -9,6 +9,7 @@
 <body>
 <ul>
 <li><a href="emp.sam">사원관리 프로그램(mvc)</a></li>
+<li><a href="bbsList.sam?cp=1">게시판(mvc)</a></li>
 </ul>
 </body>
 </html>

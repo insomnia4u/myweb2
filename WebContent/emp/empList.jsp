@@ -2,6 +2,7 @@
     pageEncoding="utf-8"%>
 <%@ page import="java.util.*"%>
 <%@ page import="sam.emp.model.*" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -23,29 +24,22 @@
 </thead>
 
 <tbody>
-<% 
-ArrayList<EmpDTO> arr=new ArrayList<EmpDTO>();
-arr=(ArrayList)request.getAttribute("arr");
-
-if(arr==null){
-%>
+<c:set var="arr" value="${requestScope.arr }"/>
+<c:if test="${empty arr}">
 	<tr>
-	
-		<td colspan="4">등록된 사원이 없습니다.</td>
+		<td colspan="5">등록된 사원이 없습니다.</td>
 	</tr>
-<%}else{ 
-	for(int i=0;i<arr.size();i++){
-%>
-	
+</c:if>
+<c:forEach var="i" items="${arr}">	
 	<tr>
 	
 	<td colspan="5">
-	<form name="edit-<%=i %>" class="f-<%=i%>" action="empEdit.sam">
-		<input type="text" class="t-<%=i%>" name="idx"  value="<%=arr.get(i).getIdx() %>" readonly>
-		<input type="text" class="t-<%=i%>" name="name" value="<%=arr.get(i).getName()%>" readonly>
-		<input type="text" class="t-<%=i%>" name="email" value="<%=arr.get(i).getEmail() %>" readonly>
-		<input type="text" class="t-<%=i%>" name="dept" value="<%=arr.get(i).getDept() %>" readonly>
-		<input type="button" class="button-<%=i%>" value="수정">
+	<form name="edit-${i} %>" class="f-${i}" action="empEdit.sam">
+		<input type="text" class="t-${i}" name="idx"  value="${i.idx}" readonly>
+		<input type="text" class="t-${i}" name="name" value="${i.name}" readonly>
+		<input type="text" class="t-${i}" name="email" value="${i.email}" readonly>
+		<input type="text" class="t-${i}" name="dept" value="${i.dept}" readonly>
+		<input type="button" class="button-${i}" value="수정">
 	</form>
 	
 	</td>
@@ -54,20 +48,20 @@ if(arr==null){
 
 <script>
 $(function(){
-		$('.button-'+<%=i%>+'').click(function(){
-			      if ($('.button-'+<%=i%>+'').val() == "완료") {
-			    	  $('.f-'+<%=i%>+'').submit();
+		$('.button-'+${i}+'').click(function(){
+			      if ($('.button-'+${i}+'').val() == "완료") {
+			    	  $('.f-'+${i}+'').submit();
     	  
 					return true;
 			      }
-			      $('.t-'+<%=i%>+'').attr('readonly',false);
-				    $('.button-'+<%=i%>+'').attr('value','완료');
+			      $('.t-'+${i}+'').attr('readonly',false);
+				    $('.button-'+${i}+'').attr('value','완료');
 
 			      return false;
 			    });
 });
 </script>	
-	<%}} %>
+</c:forEach>
 	</tbody>
 </table>
 </body>

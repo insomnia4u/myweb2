@@ -9,6 +9,29 @@ public class EmpDAO {
 	private PreparedStatement ps;
 	private ResultSet rs;
 	
+	public int getMaxRef(){
+		try{
+			String sql="select max(ref) from bbs";
+			ps=conn.prepareStatement(sql);
+			rs=ps.executeQuery();
+			int max=0;
+			if(rs.next()){
+				max=rs.getInt(1);
+			}
+			return max;
+		}catch(Exception e){
+			e.printStackTrace();
+			return 0;
+		}finally{
+			try{
+				if(rs!=null) rs.close();
+				if(ps!=null) ps.close();
+			}catch(Exception e2){
+				
+			}
+		}
+	}
+	
 	public int empAdd(EmpDTO dto)
 	{
 		try
